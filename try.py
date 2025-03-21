@@ -3,7 +3,11 @@ import git
 import datetime
 
 repo_path = "file path"  # Change this to your local repo path
-commit_times = int(input("Enter the number of commits: "))
+commit_times = int(input("Enter the number of commits (<100): "))
+
+if (commit_times > 100):
+  print("Please enter a number less than 100.")
+  exit()
 
 repo = git.Repo(repo_path)
 assert not repo.bare
